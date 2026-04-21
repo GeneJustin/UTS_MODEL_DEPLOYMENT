@@ -4,8 +4,8 @@ import numpy as np
 import pandas as pd
 
 
-logistic = joblib.load("artifacts/logistic.pkl")
-linear = joblib.load("artifacts/linear.pkl")
+logistic = joblib.load("logistic.pkl")
+linear = joblib.load("linear.pkl")
 
 def main():
     st.title("Placement & Salary Prediction")
