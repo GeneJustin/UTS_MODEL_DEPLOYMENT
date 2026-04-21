@@ -4,8 +4,8 @@ import numpy as np
 import pandas as pd
 
 
-logistic = joblib.load("logistic.pkl")
-linear = joblib.load("linear.pkl")
+logistic = joblib.load("artifacts/logistic.pkl")
+linear = joblib.load("artifacts/linear.pkl")
 
 def main():
     st.title("Placement & Salary Prediction")
@@ -30,7 +30,7 @@ def main():
     branch = st.selectbox("Branch", ["CSE", "IT", "ECE", "EEE", "MECH"])
 
     if st.button("Predict Placement & Salary"):
-        input_dict = {
+        inp = {
             "attendance_percentage": [attendance],
             "study_hours_per_day": [study_hours],
             "backlogs": [backlogs],
@@ -48,7 +48,7 @@ def main():
             "branch": [branch]
         }
 
-        df = pd.DataFrame(input_dict)
+        df = pd.DataFrame(inp)
 
         placement = logistic.predict(df)[0]
         salary = linear.predict(df)[0]
